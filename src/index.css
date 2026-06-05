@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --line: rgba(11, 18, 26, 0.10);
+    --line-dark: rgba(255, 255, 255, 0.12);
+    --mint-soft: rgba(23, 159, 212, 0.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #0B121A;
+    background: #FBFAF8;
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection { background: #179FD4; color: #ffffff; }
+  h1, h2, h3, h4 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  a { color: inherit; text-decoration: none; }
+}
+
+@layer components {
+  .wrap { max-width: 1200px; margin: 0 auto; padding-left: clamp(20px,5vw,72px); padding-right: clamp(20px,5vw,72px); }
+  .wrap-wide { max-width: 1360px; margin: 0 auto; padding-left: clamp(20px,5vw,72px); padding-right: clamp(20px,5vw,72px); }
+  .sec { padding-top: clamp(72px,10vw,140px); padding-bottom: clamp(72px,10vw,140px); }
+  .sec-sm { padding-top: clamp(56px,7vw,96px); padding-bottom: clamp(56px,7vw,96px); }
+
+  .display { font-size: clamp(2.6rem,6.6vw,5.6rem); font-weight: 600; line-height: 1.0; letter-spacing: -0.03em; font-family: "Space Grotesk", sans-serif; }
+  .h-xl { font-size: clamp(2.1rem,4.6vw,3.6rem); letter-spacing: -0.025em; font-family: "Space Grotesk", sans-serif; font-weight: 600; }
+  .h-lg { font-size: clamp(1.7rem,3.2vw,2.6rem); font-weight: 600; letter-spacing: -0.02em; font-family: "Space Grotesk", sans-serif; }
+  .h-md { font-size: clamp(1.25rem,2vw,1.6rem); font-weight: 600; letter-spacing: -0.015em; font-family: "Space Grotesk", sans-serif; }
+  .lede { font-size: clamp(1.05rem,1.5vw,1.32rem); line-height: 1.55; }
+  .mono { font-family: "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace; font-size: 0.74rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.6em;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: #179FD4; display: inline-block; }
+  .eyebrow.center::before { display: none; }
+}
+
+/* hero grid + glow (cool blue, matching the live site) */
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 80%);
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 80%);
+}
+.hero-glow {
+  position: absolute; width: 820px; height: 820px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(23,159,212,.28), transparent 64%);
+  top: -160px; left: 50%; transform: translateX(-50%); filter: blur(14px); pointer-events: none;
+}
+
+/* India map */
+#indiaMap path {
+  fill: rgba(255,255,255,.05); stroke: rgba(255,255,255,.14); stroke-width: .6;
+  transition: fill .35s, stroke .35s;
+}
+#indiaMap path.active { fill: rgba(23,159,212,.20); stroke: rgba(23,159,212,.55); cursor: pointer; }
+#indiaMap path.active:hover, #indiaMap path.sel { fill: #179FD4; stroke: #7fd0ee; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; }
+}
