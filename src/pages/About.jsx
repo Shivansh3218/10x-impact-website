@@ -98,8 +98,17 @@ export default function About() {
               return (
                 <Reveal key={m.n} delay={(i % 3) * 0.06}>
                   <div className="flex items-center gap-4 p-5 rounded-[16px] border border-[var(--line)] bg-white transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(11,18,26,.16)] hover:border-mint/40 h-full">
-                    <div className="w-[58px] h-[58px] shrink-0 rounded-full bg-[linear-gradient(135deg,#192532,#0B121A)] flex items-center justify-center font-display font-bold text-[1.1rem] text-mint">
-                      {initials}
+                    <div className="w-[58px] h-[58px] shrink-0 rounded-full bg-[linear-gradient(135deg,#192532,#0B121A)] flex items-center justify-center font-display font-bold text-[1.1rem] text-mint relative overflow-hidden">
+                      <span>{initials}</span>
+                      {m.photo && (
+                        <img
+                          src={m.photo}
+                          alt={m.n}
+                          loading="lazy"
+                          onError={(e) => { e.currentTarget.style.display = "none"; }}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
                     </div>
                     <div className="min-w-0">
                       <div className="font-display font-semibold text-[1.04rem] leading-tight">{m.n}</div>

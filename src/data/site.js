@@ -13,6 +13,7 @@ export const IMG = {
   data: img("photo-1551288049-bebda4e38f71"),
   potter: img("photo-1524497440-4da55062cb4a"),
   womenMP: img("photo-1587538018365-2a1f8b544c08"),
+  community: img("photo-1519955266818-0231b63402bc"),   // community group, India
 };
 
 // Partner logos served from the live CDN (browser-loaded).
@@ -218,15 +219,15 @@ export const INCUBATED = ["IIM-B NSRCEL", "Wadhwani Foundation"];
 
 // Team (real members from /about-us).
 export const TEAM = [
-  { n: "Vaibhav Mishra", r: "Director & Co-founder", li: "https://www.linkedin.com/in/vaibhavmishra05/", email: "vaibhav@10ximpact.in" },
-  { n: "Tony Brian D’Souza", r: "Director & Co-founder", li: "https://www.linkedin.com/in/tonybriandsouza/", email: "tony@10ximpact.in" },
-  { n: "Abhishek Bhardwaj", r: "Principal MEL & Research Lead", li: "https://www.linkedin.com/in/abhardwaj/", email: "abhishek@10ximpact.in" },
-  { n: "Noor Dhawan", r: "Product Manager", li: "https://www.linkedin.com/in/noor-dhawan-pm/", email: "noor@10ximpact.in" },
-  { n: "Garima Bagaria", r: "Senior Product Designer", li: "https://www.linkedin.com/in/garimabagaria/", email: "garima@10ximpact.in" },
-  { n: "Shivansh Rawat", r: "Associate Product Manager", li: "https://www.linkedin.com/in/shivansh-rawat-78aa421b5/", email: "shivansh@10ximpact.in" },
-  { n: "Yukti Grover", r: "Business Associate", li: "https://www.linkedin.com/in/writingbyyuktigrover", email: "yukti@10ximpact.in" },
+  { n: "Vaibhav Mishra", r: "Director & Co-founder", li: "https://www.linkedin.com/in/vaibhavmishra05/", email: "vaibhav@10ximpact.in" , photo: "/team/vaibhav.jpg"},
+  { n: "Tony Brian D’Souza", r: "Director & Co-founder", li: "https://www.linkedin.com/in/tonybriandsouza/", email: "tony@10ximpact.in" , photo: "/team/tony.jpg"},
+  { n: "Abhishek Bhardwaj", r: "Principal MEL & Research Lead", li: "https://www.linkedin.com/in/abhardwaj/", email: "abhishek@10ximpact.in" , photo: "/team/abhishek.jpg"},
+  { n: "Noor Dhawan", r: "Product Manager", li: "https://www.linkedin.com/in/noor-dhawan-pm/", email: "noor@10ximpact.in" , photo: "/team/noor.jpg"},
+  { n: "Garima Bagaria", r: "Senior Product Designer", li: "https://www.linkedin.com/in/garimabagaria/", email: "garima@10ximpact.in" , photo: "/team/garima.jpg"},
+  { n: "Shivansh Rawat", r: "Associate Product Manager", li: "https://www.linkedin.com/in/shivansh-rawat-78aa421b5/", email: "shivansh@10ximpact.in" , photo: "/team/shivansh.jpg"},
+  { n: "Yukti Grover", r: "Business Associate", li: "https://www.linkedin.com/in/writingbyyuktigrover", email: "yukti@10ximpact.in" , photo: "/team/yukti.jpg"},
   { n: "Rajasekhar Kaliki", r: "Advisor", li: "" },
-  { n: "Daniela de Carvalho Matielo", r: "Advisor", li: "https://www.linkedin.com/in/danimatielo/" },
+  { n: "Daniela de Carvalho Matielo", r: "Advisor", li: "https://www.linkedin.com/in/danimatielo/" , photo: "/team/daniela.jpg"},
 ];
 
 // id => project context, for the interactive India map
@@ -338,3 +339,78 @@ export const NAV_LINKS = [
   { to: "/join", t: "Join Us" },
   { href: "https://chatmne.ai/", t: "ChatMnE", ext: true },
 ];
+
+// Detailed What We Do content — two tracks, full per-service breakdown.
+export const SERVICE_DETAILS = {
+  intro: "We help nonprofits, philanthropies, and governments design practical Tech, Data & AI systems grounded in real-world needs.",
+  tracks: [
+    {
+      key: "ngo",
+      label: "For Non-profits & Philanthropies",
+      services: [
+        {
+          h: "Leverage Tech, Data & AI for Better Programs and Community Outcomes",
+          problem: ["Don't have in-house tech experts who understand social sector realities", "End up with expensive, overbuilt, or underused systems", "Miss out on AI tools that make work faster, easier, and more impactful"],
+          offering: "We help NGOs identify, plan and use the right tech, data and AI tools for their work — not shiny apps, but practical solutions that improve program delivery and outcomes.",
+          help: ["Finding low-cost tech tools and AI solutions for your programs", "Setting up easy MIS systems, dashboards and data processes", "Identifying AI tools for reporting, data cleaning, translation, or outreach", "Building a simple Tech & Data roadmap for your organization", "Training your team on tech and data literacy"],
+          who: ["NGOs running programs without tech or data support", "Teams curious about AI but don't know where to start", "Organizations with scattered systems and no clear data strategy"],
+          why: ["Practical, sector-relevant tech support", "Focus on what's usable, not what's fancy", "Helps you focus on impact, not tech headaches"],
+        },
+        {
+          h: "Build MEL Process, Dashboard & Tech for Smarter Decisions",
+          problem: ["Don't have structured MEL processes to track what matters", "Struggle with messy or incomplete data systems", "Can't turn data into clear, actionable insights for decision-making"],
+          offering: "We help NGOs set up simple MEL processes, build dashboards, and design data systems that make it easy to track, learn and improve — without making it too complex.",
+          help: ["Building MEL frameworks and KPIs for programs", "Setting up custom dashboards using tools like Google Data Studio, Power BI", "Designing data collection and reporting workflows", "Training teams to interpret and use data for program decisions"],
+          who: ["NGOs scaling programs and needing structured MEL", "Orgs facing donor reporting challenges", "Any non-profit that wants to become data-driven"],
+          why: ["Keeps MEL simple, usable and aligned to your programs", "Dashboards and tools you can manage without heavy tech", "Focus on learning, not just reporting"],
+        },
+        {
+          h: "Fractional MEL / Data Expert",
+          problem: ["They lack in-house MEL (Monitoring, Evaluation & Learning) or data experts", "Full-time hires are expensive or hard to find with the right social sector experience", "Teams struggle with messy data systems, reporting gaps, and weak decision-making frameworks"],
+          offering: "We give you part-time, on-demand MEL & Data experts — experienced in the social impact space — who work with your team every month to strengthen data systems, track what matters, and help you learn and improve. Think of it as your own MEL/Data person on-call.",
+          help: ["Setting up simple, usable MIS / data systems", "Designing MEL frameworks and indicators for projects and organizations", "Creating dashboards & reports for internal use and donor reporting", "Running program evaluations and outcome studies", "Training your team to use data for decision-making", "Cleaning up and organizing existing data", "Support during donor audits and reporting cycles"],
+          who: ["Non-profits without a full-time MEL / Data person", "Growing orgs needing data support for new programs", "NGOs handling multiple donors and reporting requirements", "Sector alliances and networks needing MEL support across partners"],
+          why: ["Fractional = affordable + flexible", "You get sector-relevant experts who understand your context", "Practical, no-jargon, action-focused support"],
+        },
+        {
+          h: "Fractional Product Manager — Digital Solutions Expert",
+          problem: ["Lack experienced product managers to guide design and development", "End up with clunky, unusable, or underutilized systems", "Struggle with adoption, user feedback and scaling"],
+          offering: "We place a part-time, expert Product Manager with your team to help plan, build and manage digital projects — from concept to adoption.",
+          help: ["Scoping and designing digital solutions (apps, dashboards, platforms)", "Managing vendor and tech partner coordination", "Conducting user research and testing", "Creating a product roadmap and rollout plan", "Ensuring program and tech alignment"],
+          who: ["NGOs building new digital tools", "Orgs facing tech product adoption issues", "Teams needing a tech advisor but can't hire full-time"],
+          why: ["Affordable, on-demand product leadership", "Focus on practical, impact-driven tech solutions", "Acts as your in-house tech guide without full-time costs"],
+        },
+      ],
+    },
+    {
+      key: "gov",
+      label: "For GovTech, Philanthropies & CSRs",
+      services: [
+        {
+          h: "Design Tech, Data & AI Programs for Impact",
+          problem: ["Struggle to design relevant, scalable models", "Face difficulty identifying impact-ready tech partners", "Often miss out on AI innovations usable for their focus areas"],
+          offering: "We help funders design tech, data, and AI-enabled programs — from concept to partner identification and implementation support.",
+          help: ["Co-designing tech and AI-powered social programs", "Sourcing and vetting social impact tech partners", "Building data and AI use cases for existing programs", "Advising on grant structuring for tech initiatives"],
+          who: ["Foundations and CSRs funding tech-heavy projects", "Donor networks exploring AI for social impact", "Philanthropies wanting to integrate data into decision-making"],
+          why: ["Sector-informed, tech-savvy advisory", "Keeps focus on impact, feasibility, and scale", "Avoids costly, impractical tech mistakes"],
+        },
+        {
+          h: "Strengthen Grantee Tech and Data Capacity",
+          problem: ["Reporting gaps and poor program data", "Weak adoption of funded platforms", "Under-utilized program insights"],
+          offering: "We offer grantee tech and data capacity-building programs — through workshops, toolkits, and direct support.",
+          help: ["Running AI, data, and digital literacy workshops", "Designing MEL and data frameworks for grantees", "Providing on-demand tech advisory services", "Creating custom toolkits and guides"],
+          who: ["Philanthropies and CSRs funding multiple NGOs", "Donor networks managing social innovation programs"],
+          why: ["Focus on grantee-centric, simple, usable solutions", "Builds program sustainability and reporting strength", "Supports both grassroots and mid-sized organizations"],
+        },
+        {
+          h: "Research and Insights on Tech, Data and AI",
+          problem: ["Limited research on how tech, data and AI are being used in India's social sector", "Hard for funders to plan, fund and track trends", "Few credible, field-grounded reference points"],
+          offering: "We run custom research, landscape studies and insight reports on tech, data and AI trends in the social impact space.",
+          help: ["Mapping AI tools and innovations in social impact", "Researching grantee tech adoption challenges", "Studying MIS and MEL tech trends", "Publishing insight notes for your ecosystem partners"],
+          who: ["Philanthropies investing in tech and data", "Donor networks looking for insights to inform strategy", "CSR teams planning AI or tech capacity initiatives"],
+          why: ["Actionable, context-rich insights", "Focused on practical recommendations for funders", "Uses real field examples and data"],
+        },
+      ],
+    },
+  ],
+};

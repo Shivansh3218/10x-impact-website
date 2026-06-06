@@ -8,12 +8,12 @@ const field = "w-full px-[15px] py-[13px] border border-[var(--line)] rounded-[1
 const labelCls = "block text-[0.82rem] font-semibold mb-[7px] text-ink";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", org: "", email: "", type: "Non-profit", msg: "" });
+  const [form, setForm] = useState({ name: "", org: "", email: "", designation: "", msg: "" });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   function submit(e) {
     e.preventDefault();
-    const body = `Name: ${form.name}%0D%0AOrganisation: ${form.org}%0D%0AEmail: ${form.email}%0D%0AType: ${form.type}%0D%0A%0D%0A${form.msg}`;
+    const body = `Name: ${form.name}%0D%0AOrganisation: ${form.org}%0D%0ADesignation: ${form.designation}%0D%0AEmail: ${form.email}%0D%0A%0D%0A${form.msg}`;
     window.location.href = `mailto:team@10ximpact.in?subject=${encodeURIComponent("Collaboration enquiry — " + form.name)}&body=${body}`;
   }
 
@@ -40,12 +40,9 @@ export default function Contact() {
                   <input id="org" className={field} value={form.org} onChange={set("org")} placeholder="Your NGO / foundation / department" /></div>
                 <div className="mb-[18px]"><label className={labelCls} htmlFor="email">Email</label>
                   <input id="email" type="email" className={field} value={form.email} onChange={set("email")} placeholder="you@organisation.org" required /></div>
-                <div className="mb-[18px]"><label className={labelCls} htmlFor="type">I am a…</label>
-                  <select id="type" className={field} value={form.type} onChange={set("type")}>
-                    <option>Non-profit</option><option>Philanthropy / CSR</option>
-                    <option>Government / GovTech</option><option>Social enterprise</option><option>Other</option>
-                  </select></div>
-                <div className="mb-[18px]"><label className={labelCls} htmlFor="msg">What are you trying to solve?</label>
+                <div className="mb-[18px]"><label className={labelCls} htmlFor="designation">Designation</label>
+                  <input id="designation" className={field} value={form.designation} onChange={set("designation")} placeholder="Your role / title" /></div>
+                <div className="mb-[18px]"><label className={labelCls} htmlFor="msg">Note</label>
                   <textarea id="msg" className={`${field} min-h-[130px] resize-y`} value={form.msg} onChange={set("msg")}
                     placeholder="A few lines on the challenge, the people it affects, and where you are today." required /></div>
                 <Button type="submit" variant="dark">Send message</Button>
@@ -67,7 +64,7 @@ export default function Contact() {
               </div>
               <div className="mt-9 p-6 border border-[var(--line)] rounded-[16px] bg-white">
                 <Eyebrow>Our promise</Eyebrow>
-                <p className="text-stone m-0">We treat every conversation like the start of a partnership — practical, honest, and grounded in what your community actually needs.</p>
+                <p className="text-stone m-0">We treat every conversation like the start of a partnership — practical, honest, and grounded in what your community actually needs. We respond within 3 working days, always.</p>
               </div>
             </Reveal>
           </div>
