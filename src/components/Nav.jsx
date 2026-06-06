@@ -38,19 +38,30 @@ export default function Nav() {
         <nav className="hidden md:flex items-center">
           <ul className="flex items-center gap-0.5 list-none m-0 p-1.5 rounded-full border border-[var(--line)] bg-white/70 backdrop-blur-sm shadow-[0_8px_24px_-16px_rgba(11,18,26,.25)]">
             {NAV_LINKS.map((n) => (
-              <li key={n.to}>
-                <NavLink
-                  to={n.to}
-                  end={n.to === "/"}
-                  className={({ isActive }) =>
-                    cn(
-                      "px-3.5 py-2 rounded-full text-[0.88rem] font-medium transition-colors whitespace-nowrap",
-                      isActive ? "text-mint bg-mint/10" : "text-ink/70 hover:text-ink hover:bg-ink/[0.04]"
-                    )
-                  }
-                >
-                  {n.t}
-                </NavLink>
+              <li key={n.t}>
+                {n.ext ? (
+                  <a
+                    href={n.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-2 rounded-full text-[0.88rem] font-medium transition-colors whitespace-nowrap text-ink/70 hover:text-mint hover:bg-ink/[0.04]"
+                  >
+                    {n.t}
+                  </a>
+                ) : (
+                  <NavLink
+                    to={n.to}
+                    end={n.to === "/"}
+                    className={({ isActive }) =>
+                      cn(
+                        "px-3.5 py-2 rounded-full text-[0.88rem] font-medium transition-colors whitespace-nowrap",
+                        isActive ? "text-mint bg-mint/10" : "text-ink/70 hover:text-ink hover:bg-ink/[0.04]"
+                      )
+                    }
+                  >
+                    {n.t}
+                  </NavLink>
+                )}
               </li>
             ))}
           </ul>
@@ -76,19 +87,27 @@ export default function Nav() {
       {open && (
         <div className="md:hidden bg-paper/97 backdrop-blur-md border-t border-[var(--line)]">
           <ul className="wrap flex flex-col py-3 list-none m-0">
-            {NAV_LINKS.concat([{ to: "/contact", t: "Get in Touch" }]).map((n) => (
-              <li key={n.to}>
-                <NavLink
-                  to={n.to}
-                  end={n.to === "/"}
-                  className={({ isActive }) =>
-                    cn("block px-2 py-3 rounded-lg text-base", isActive ? "text-mint" : "text-ink/80")
-                  }
-                >
-                  {n.t}
-                </NavLink>
-              </li>
-            ))}
+            {NAV_LINKS.concat([{ to: "/contact", t: "Get in Touch" }]).map((n) =>
+              n.ext ? (
+                <li key={n.t}>
+                  <a href={n.href} target="_blank" rel="noopener noreferrer" className="block px-2 py-3 rounded-lg text-base text-ink/80">
+                    {n.t}
+                  </a>
+                </li>
+              ) : (
+                <li key={n.t}>
+                  <NavLink
+                    to={n.to}
+                    end={n.to === "/"}
+                    className={({ isActive }) =>
+                      cn("block px-2 py-3 rounded-lg text-base", isActive ? "text-mint" : "text-ink/80")
+                    }
+                  >
+                    {n.t}
+                  </NavLink>
+                </li>
+              )
+            )}
           </ul>
         </div>
       )}

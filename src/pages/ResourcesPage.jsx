@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import PageHero from "../components/PageHero";
 import { ResourceFeature, ResourceCards } from "../components/sections/Resources";
+import { RESOURCES } from "../data/site";
 import { SectionHead, Reveal } from "../components/primitives";
 import { Button } from "../components/ui/button";
 
@@ -15,8 +16,12 @@ export default function ResourcesPage() {
           <SectionHead dark eyebrow="Featured toolkit" title="Start here." />
           <ResourceFeature />
           <div className="mt-16">
-            <SectionHead dark eyebrow="More toolkits & articles" title="" />
-            <ResourceCards />
+            <SectionHead dark eyebrow="Toolkits" title="Build with our playbooks." />
+            <ResourceCards items={RESOURCES.toolkits} />
+          </div>
+          <div className="mt-16">
+            <SectionHead dark eyebrow="Articles" title="Field notes & points of view." />
+            <ResourceCards items={RESOURCES.articles} />
           </div>
         </div>
       </section>

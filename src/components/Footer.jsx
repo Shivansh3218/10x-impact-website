@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin } from "lucide-react";
+import { FOOTER } from "../data/site";
 
 function Col({ title, children }) {
   return (
@@ -50,9 +51,13 @@ export default function Footer() {
             </li>
           </Col>
         </div>
-        <div className="flex flex-wrap justify-between items-center gap-4 pt-7 text-[0.84rem] text-white/50">
-          <span>© 2026 10x Impact Labs. All rights reserved.</span>
-          <span>Bridging tech &amp; data for social impact.</span>
+        <div className="flex flex-col md:flex-row flex-wrap justify-between items-start md:items-center gap-4 pt-7 text-[0.84rem] text-white/50">
+          <span>Copyright © 2026 10x Impact Labs | All Rights Reserved</span>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {FOOTER.legal.map((l) => (
+              <a key={l.t} href={l.href} className="hover:text-mint transition-colors">{l.t}</a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

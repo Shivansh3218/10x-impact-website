@@ -1,8 +1,9 @@
+import { Linkedin } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Partners from "../components/sections/Partners";
 import Closing from "../components/sections/Closing";
 import { SectionHead, Reveal, CountUp } from "../components/primitives";
-import { VALUES, BELIEFS, PRINCIPLES, INCUBATED, STATS, SDGS } from "../data/site";
+import { VALUES, BELIEFS, PRINCIPLES, INCUBATED, STATS, SDGS, TEAM } from "../data/site";
 
 export default function About() {
   return (
@@ -82,6 +83,44 @@ export default function About() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="sec bg-white">
+        <div className="wrap-wide">
+          <SectionHead eyebrow="Our team" title="Advisors, builders & co-designers."
+            lede="A team drawn from product, design, research and the front lines of the social sector." />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {TEAM.map((m, i) => {
+              const initials = m.n.split(" ").slice(0, 2).map((w) => w[0]).join("");
+              return (
+                <Reveal key={m.n} delay={(i % 3) * 0.06}>
+                  <div className="flex items-center gap-4 p-5 rounded-[16px] border border-[var(--line)] bg-white transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(11,18,26,.16)] hover:border-mint/40 h-full">
+                    <div className="w-[58px] h-[58px] shrink-0 rounded-full bg-[linear-gradient(135deg,#192532,#0B121A)] flex items-center justify-center font-display font-bold text-[1.1rem] text-mint">
+                      {initials}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-display font-semibold text-[1.04rem] leading-tight">{m.n}</div>
+                      <div className="text-[0.84rem] text-stone mt-0.5">{m.r}</div>
+                      <div className="flex items-center gap-2 mt-2">
+                        {m.li && (
+                          <a href={m.li} target="_blank" rel="noopener noreferrer" aria-label={`${m.n} on LinkedIn`}
+                             className="w-[28px] h-[28px] rounded-[7px] border border-[var(--line)] inline-flex items-center justify-center text-stone transition-colors hover:border-mint hover:text-mint">
+                            <Linkedin className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                        {m.email && (
+                          <a href={`mailto:${m.email}`} aria-label={`Email ${m.n}`}
+                             className="text-[0.78rem] text-stone hover:text-mint transition-colors">{m.email}</a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

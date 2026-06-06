@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "../components/PageHero";
 import { SectionHead, Reveal, ArrowLink } from "../components/primitives";
 import { Button } from "../components/ui/button";
+import { HIRING } from "../data/site";
 
 const why = [
   { k: "01", h: "Real ownership", p: "Lead products and programmes end-to-end, with partners who depend on what you ship." },
@@ -56,11 +57,29 @@ export default function Join() {
           </div>
           <Reveal>
             <div className="mt-10">
-              <Button href="mailto:team@10ximpact.in?subject=Joining%2010x%20Impact%20Labs" variant="dark" className="group">
-                Write to us at team@10ximpact.in <ArrowRight className="w-[1.05em] h-[1.05em] transition-transform duration-300 ease-smooth group-hover:translate-x-1" />
+              <Button href="mailto:careers@10ximpact.in?subject=Joining%2010x%20Impact%20Labs" variant="dark" className="group">
+                Write to us at careers@10ximpact.in <ArrowRight className="w-[1.05em] h-[1.05em] transition-transform duration-300 ease-smooth group-hover:translate-x-1" />
               </Button>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="sec bg-paper">
+        <div className="wrap">
+          <SectionHead eyebrow="Our hiring process" title="Simple, transparent, people-first."
+            lede="It's designed to help us get to know you — your skills, your values, and what excites you — and for you to learn about us too." />
+          <div className="border-t border-[var(--line)]">
+            {HIRING.map((a) => (
+              <Reveal key={a.n}>
+                <div className="grid md:grid-cols-[90px_1fr_2fr] gap-6 py-[30px] border-b border-[var(--line)] items-start">
+                  <span className="font-mono text-mint text-base">{a.n}</span>
+                  <h4 className="text-[1.3rem]">{a.h}</h4>
+                  <p className="m-0 text-stone">{a.p}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -70,7 +89,7 @@ export default function Join() {
           <Reveal><h2 className="h-xl text-white max-w-[22ch] mx-auto">Don’t see your role? Tell us what you’d build.</h2></Reveal>
           <Reveal delay={0.1}>
             <div className="flex gap-8 justify-center mt-9 flex-wrap">
-              <ArrowLink href="mailto:team@10ximpact.in" dark>Email the team</ArrowLink>
+              <ArrowLink href="mailto:careers@10ximpact.in" dark>Email careers@10ximpact.in</ArrowLink>
               <ArrowLink href="https://www.linkedin.com/company/10ximpactlabs/" dark>Follow on LinkedIn</ArrowLink>
             </div>
           </Reveal>

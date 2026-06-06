@@ -10,7 +10,7 @@ export function ResourceFeature() {
     <Reveal>
       <div className="grid lg:grid-cols-[1.1fr_1fr] rounded-[16px] overflow-hidden border border-white/10 bg-white/[0.03]">
         <div className="relative min-h-[220px] lg:min-h-[300px] bg-cover bg-center" style={{ backgroundImage: `url(${r.img})` }}>
-          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(10,26,16,.1),rgba(10,26,16,.5))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(11,18,26,.1),rgba(11,18,26,.5))]" />
         </div>
         <div className="p-[clamp(28px,4vw,48px)] flex flex-col justify-center">
           <Badge tone="mint" className="self-start">{r.type}</Badge>
@@ -25,20 +25,25 @@ export function ResourceFeature() {
   );
 }
 
-export function ResourceCards() {
+export function ResourceCards({ items }) {
+  const list = items || RESOURCES.articles.slice(0, 3);
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
-      {RESOURCES.cards.map((c, i) => (
+      {list.map((c, i) => (
         <Reveal key={i} delay={(i % 3) * 0.08}>
           <a
             href={c.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col p-6 rounded-[16px] border border-white/10 bg-white/[0.03] min-h-[200px] transition-all duration-300 ease-smooth hover:-translate-y-1 hover:border-mint/40 hover:bg-white/[0.05]"
+            className="group flex flex-col p-6 rounded-[16px] border border-white/10 bg-white/[0.03] min-h-[210px] transition-all duration-300 ease-smooth hover:-translate-y-1 hover:border-mint/40 hover:bg-white/[0.05]"
           >
-            <span className="font-mono text-[0.68rem] tracking-[0.12em] uppercase text-mint mb-auto">{c.type}</span>
-            <h4 className="text-[1.06rem] leading-snug mt-[18px] mb-2.5 text-white">{c.title}</h4>
-            <span className="text-[0.84rem] text-white/55">{c.author}</span>
+            <span className="font-mono text-[0.68rem] tracking-[0.12em] uppercase text-mint mb-4">{c.type}</span>
+            <h4 className="text-[1.04rem] leading-snug mb-2.5 text-white">{c.title}</h4>
+            {c.desc && <p className="text-[0.86rem] text-white/55 leading-relaxed mb-3 line-clamp-3">{c.desc}</p>}
+            <span className="mt-auto inline-flex items-center gap-1.5 text-[0.82rem] font-semibold text-white/80 group-hover:text-mint transition-colors">
+              {c.author ? `By ${c.author}` : "Open"}
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 ease-smooth group-hover:translate-x-1" />
+            </span>
           </a>
         </Reveal>
       ))}
